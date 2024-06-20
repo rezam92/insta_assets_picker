@@ -250,7 +250,13 @@ class InstaAssetsVideoController {
     dispose();
     videoPlayerController = VideoPlayerController.file(file);
     await videoPlayerController!.initialize();
-    chewieController = ChewieController(videoPlayerController: videoPlayerController!, autoPlay: true, looping: false);
+    // chewieController = ChewieController(videoPlayerController: videoPlayerController!, autoPlay: true, looping: false);
+    chewieController = ChewieController(
+      videoPlayerController: videoPlayerController!,
+      autoPlay: true,
+      looping: false,
+      allowMuting: true,
+    )..setVolume(0.0);
   }
 
   void dispose() {
